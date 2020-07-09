@@ -33,7 +33,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
-exec --no-startup-id volumeicon
+exec volumeicon
+exec ibus-daemon 
 exec --no-startup-id kdeconnect-indicator
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -48,7 +49,7 @@ bindsym XF86MonBrightnessDown exec light -U 2 # decrease screen brightness
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Shift
-
+for_window [title="Microsoft Teams Notification"] floating enable
 # start a terminal
 bindsym $mod+Ctrl+t exec gnome-terminal
 

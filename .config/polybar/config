@@ -158,7 +158,7 @@ font-0 = Hack:pixelsize=10
 ;   modules-right = ipc clock
 modules-left = i3 volume xwindow
 modules-center =
-modules-right = memory system-nvidia-smi cpu ethadapt ethdock ethport wlan0 vpncheck battery date
+modules-right = stock memory system-nvidia-smi cpu battery date
 
 ; The separator will be inserted between the output of each module
 separator =
@@ -346,6 +346,20 @@ label-mounted = %mountpoint%: %percentage_free%%
 
 label-unmounted = %mountpoint%: not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/stock]
+type = custom/script
+;Arguments for output:
+;   --biggestloser: Prints the stock with the biggest drop in a given day.
+;   --biggestgainer: Prints the stock with the biggest gain in a given day.
+;   --mostactive: Prints the most active stock in a given day.
+;   --topcrypto: Prints the top cryptocurrency by market cap in a given day.
+;   --customticker: Takes a stock ticker (ex. AAPL, GOOGL, VZ) and outputs the live price of that stock.
+exec = .config/polybar/stock.sh
+;For continuous updates
+tail = true
+interval = 0
+label = %output%
 
 
 [module/bspwm]
